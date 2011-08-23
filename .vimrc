@@ -3,7 +3,7 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 set nocompatible
-
+set t_Co=256
 set modelines=0
 set tabstop=4
 set shiftwidth=4
@@ -24,8 +24,12 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set relativenumber
-set undofile
+if has("relativenumber")
+    set relativenumber
+endif
+if has("undofile")
+    set undofile
+endif
 colorscheme molokai
 
 let mapleader = ","
@@ -44,7 +48,9 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+if has("colorcolumn")
+    set colorcolumn=85
+endif
 
 
 nnoremap <up> <nop>
@@ -70,6 +76,8 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V`
 
 inoremap jj <ESC>
+
+" leader+w creates new vertical window, cntrl+hjkl to move windows
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
