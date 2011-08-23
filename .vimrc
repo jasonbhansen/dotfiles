@@ -10,6 +10,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"Disable screen flashes
+set t_vb= 
+
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -83,4 +86,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap <leader>nt :NERDTree<CR>
 
